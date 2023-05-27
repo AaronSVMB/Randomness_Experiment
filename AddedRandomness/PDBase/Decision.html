@@ -1,0 +1,50 @@
+{{ block title }}
+    Prisoner's Dilemma
+{{ endblock }}
+{{ block content }}
+
+Below you find the payoff Matrix of a prisoners Dilemma.
+<table>
+    <tr>
+        <td rowspan = "4">Other Player</td>
+        <td colspan = "3"> You </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td style = "..."> Cooperate</td>
+        <td style = "..."> Defect </td>
+    </tr>
+    <tr>
+        <td>Cooperate</td>
+        <td>{{ C.payoff_both_cooperate }} , {{ C.payoff_both_cooperate }}</td>
+        <td>{{ C.payoff_cooperate_defect_low }}, {{ C.payoff_cooperate_defect_high }}</td>
+    </tr>
+    <tr>
+        <td>Defect</td>
+        <td>{{ C.payoff_cooperate_defect_high }} , {{ C.payoff_cooperate_defect_low }}</td>
+        <td>{{ C.payoff_both_defect }} , {{ C.payoff_both_defect }}<td/>
+    </tr>
+</table>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}
+
+{% block app_styles %}
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid white;
+            background-color: rgb(0, 33, 71);
+            color: white;
+            font-weight: bold;
+            font-size: 19px;
+            padding: 3px 10px 3px 10px;
+            text-align: center;
+        }
+    </style>
+{{ endblock }}
