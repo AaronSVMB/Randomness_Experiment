@@ -1,9 +1,13 @@
 {{ block title }}
-    Prisoner's Dilemma
+    Your Move
 {{ endblock }}
 {{ block content }}
 
-Below you find the payoff Matrix of a prisoners Dilemma.
+    <p style="text-align:right;">
+        Period: {{ player.round_number }} / {{ C.NUM_ROUNDS }}
+    </p>
+
+Below you find the Payoff Matrix for <strong>Your</strong> Moves and the <strong>Other</strong> Player's Possible Moves.
 <table>
     <tr>
         <td rowspan = "4">Other Player</td>
@@ -11,17 +15,17 @@ Below you find the payoff Matrix of a prisoners Dilemma.
     </tr>
     <tr>
         <td></td>
-        <td style = "..."> Cooperate</td>
-        <td style = "..."> Defect </td>
+        <td style = "..."> Left</td>
+        <td style = "..."> Right </td>
     </tr>
     <tr>
-        <td>Cooperate</td>
+        <td>Left</td>
         <td>{{ C.payoff_both_cooperate }} , {{ C.payoff_both_cooperate }}</td>
-        <td>{{ C.payoff_cooperate_defect_low }}, {{ C.payoff_cooperate_defect_high }}</td>
+        <td>{{ C.payoff_cooperate_defect_high }}, {{ C.payoff_cooperate_defect_low }}</td>
     </tr>
     <tr>
-        <td>Defect</td>
-        <td>{{ C.payoff_cooperate_defect_high }} , {{ C.payoff_cooperate_defect_low }}</td>
+        <td>Right</td>
+        <td>{{ C.payoff_cooperate_defect_low }} , {{ C.payoff_cooperate_defect_high }}</td>
         <td>{{ C.payoff_both_defect }} , {{ C.payoff_both_defect }}<td/>
     </tr>
 </table>

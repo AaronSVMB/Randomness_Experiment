@@ -5,7 +5,8 @@
 {{ block content }}
 
 <p>
-    You chose to {{ player.defect }}. Your Payoff is {{ player.payoff }}.
+    You chose {{ choice }}. The other player chose {{ partners_choice }}. The random algorithm produced a shock of
+    {{ player.additive_shock_realized }} for you and the other player. Therefore, Your Payoff is {{ player.payoff }}.
 </p>
 
     {{ next_button }}

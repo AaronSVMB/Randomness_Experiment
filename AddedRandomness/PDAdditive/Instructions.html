@@ -4,9 +4,96 @@
 
 {{ block content }}
 
-<p>
-    Insert instructions for the ADDITIVE PD here.
-</p>
+<h3>Welcome</h3>
+
+    <p>
+        This experiment is a study of economic decision-making.  Everyone in this experiment is receiving the exact
+        same instructions. You will earn $7 simply for participating in this experiment for its full duration. But if
+        you follow the instructions and make careful decisions, you can earn a significant amount of additional money.
+        You will be paid at the end of the experiment via PayPal. The entire amount of money which you
+        earned with your decisions throughout this experiment will be added up and paid to you at the
+        end of the entire experiment.
+    </p>
+
+    <p>
+        During the experiment your earnings will be measured in points. Each point is worth X cents, so at the end of
+        the experiment your points will be converted to dollars at a rate of XX points per dollar.
+    </p>
+
+    <p>
+        It is important that you remain silent and not look at other people's work during the experiment. If you talk,
+        laugh, or exclaim out loud you will be asked to leave and will not be paid. If you have any questions or need
+        assistance, raise your hand the experimenter will come to you.
+    </p>
+
+    <h3>Your Matching</h3>
+
+    <p>
+        In this experiment you will be paired with one other player. You will be <strong>randomly</strong> paired with
+        this player, and you will not know the identity of the participant you are matched with. Because you are known
+        only by your random ID number, there will be no way for anyone (including the experimenters) to know who you
+        or your partner are matched with or what decisions you make.
+    </p>
+
+    <h3>Your Decision</h3>
+
+    <p>
+        Both you and the other player will have two possible choices. You can choose <strong>Left</strong> or you can
+        choose <strong>Right</strong>. If you both choose <strong>Left</strong> you will both get a payoff of
+        {{ C.payoff_both_cooperate }}. If you both choose <strong>Right</strong> you will both get a payoff of
+        {{ C.payoff_both_defect }}. If you choose <strong>Right</strong> but the other player chooses <strong>Left</strong>,
+        you will get a payoff of {{ C.payoff_cooperate_defect_high }}, but the other player will receive
+        {{ C.payoff_cooperate_defect_low }}. Likewise, if you choose <strong>Left</strong> but the other player chooses
+        <strong>Right</strong>, then you will receive {{ C.payoff_cooperate_defect_low }} and the other player receives
+        {{ C.payoff_cooperate_defect_high }}. These payoffs are summarized in the table below. The first number in each
+        box is the payment received by you, the second number is the payment received by the other player:
+        <br>
+        <img src="{% static 'PDAdditive/PDAdditiveDecision.jpg' %}" alt="Image" height="400">
+    </p>
+
+    <p>
+        When choosing your move, you will <u>not</u> know the choice of the other player. You must make your choice
+        <i>without</i> knowing what the other player will choose. After all players in the experiment have made their choices,
+        the computer will report to you the move chosen by the other player and your payoff from <i>this period</i> of play.
+    </p>
+
+    <p>
+        You will play the one-period game just described to you for {{ C.NUM_ROUNDS }} periods with the <strong>same</strong> other
+        player.
+    </p>
+
+    <h3>Shock</h3>
+
+    <p>
+        After you and the other player's decisions are made, the computer will make adjustments to the earnings of all the participants
+        in the experiment. The adjustments will be either +5 or -5 points. The same adjustment will be made to the
+        earnings of the other member you are matched with, but the other matched individuals in this session
+        may receive different adjustments. The computer will choose the adjustment for your group based on a random
+        number calculation, so that there will be a 50% chance that {{ C.additive_shock_value }} are added to the
+        earnings of you and the other player you are paired with and a 50% chance that {{ C.additive_shock_value }} are
+        subtracted the earnings of you and the other player you are matched with. The computer will calculate a different
+        random number for all matched pairings in this experiment.
+    </p>
+
+    <p><strong><i>Example</i></strong>: If you both choose <strong>Left</strong> and the computer randomly picks to add
+        {{ C.additive_shock_value }} your period payoff will be {{ C.payoff_both_cooperate }} +
+        {{ C.additive_shock_value }} = 17.
+    </p>
+
+    <h3>Confidentiality</h3>
+
+    <p>
+        Your identity in the experiment will not be made known to any other participant at any time in the experiment.
+        <i>Your decisions and payoffs are confidential</i>.
+    </p>
+
+    <p>
+        <strong>Do not discuss your choices or payoffs with any other player!</strong>
+    </p>
+
+    <p>
+        <strong>Thank you and Good Luck!</strong>
+    </p>
 
     {{ next_button }}
 {{ endblock }}

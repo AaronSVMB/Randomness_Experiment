@@ -30,11 +30,17 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    defect = models.BooleanField(
-        label="Please choose if you want to cooperate or defect",
+    cooperate = models.BooleanField(
+        label="Please select your move: Left or Right",
         choices=[
-            [True, "Defect"],
-            [False, "Cooperate"]
+            [True, "Left"],
+            [False, "Right"]
+        ]
+    )
+    partner_choice = models.BooleanField(
+        choices=[
+            [True, "Left"],
+            [False, "Right"],
         ]
     )
 
@@ -50,7 +56,7 @@ class Instructions(Page):
 
 class Decision(Page):
     form_model = 'player'
-    form_fields = ['defect']
+    form_fields = ['cooperate']
 
 
 class ResultsWaitPage(WaitPage):
@@ -60,24 +66,51 @@ class ResultsWaitPage(WaitPage):
         player_lists = group.get_players()
         player_1 = player_lists[0]
         player_2 = player_lists[1]
-        if player_1.defect:
-            if player_2.defect:
-                player_1.payoff = C.payoff_both_defect
-                player_2.payoff = C.payoff_both_defect
-            else:
-                player_1.payoff = C.payoff_cooperate_defect_high
-                player_2.payoff = C.payoff_cooperate_defect_low
-        else:
-            if player_2.defect:
-                player_1.payoff = C.payoff_cooperate_defect_low
-                player_2.payoff = C.payoff_cooperate_defect_high
-            else:
+
+        # Save the choice of their partner
+        player_1.partner_choice = player_2.cooperate
+        player_2.partner_choice = player_1.cooperate
+
+        if player_1.cooperate:
+            if player_2.cooperate:
                 player_1.payoff = C.payoff_both_cooperate
                 player_2.payoff = C.payoff_both_cooperate
+            else:
+                player_1.payoff = C.payoff_cooperate_defect_low
+                player_2.payoff = C.payoff_cooperate_defect_high
+        else:
+            if player_2.cooperate:
+                player_1.payoff = C.payoff_cooperate_defect_high
+                player_2.payoff = C.payoff_cooperate_defect_low
+            else:
+                player_1.payoff = C.payoff_both_defect
+                player_2.payoff = C.payoff_both_defect
 
 
 class Results(Page):
-    pass
+    def vars_for_template(player: Player):
+        if player.cooperate:
+            if player.partner_choice:
+                return {
+                    'choice': 'Left',
+                    'partners_choice': 'Left'
+                }
+            else:
+                return {
+                    'choice': 'Left',
+                    'partners_choice': 'Right'
+                }
+        else:
+            if player.partner_choice:
+                return {
+                    'choice': 'Right',
+                    'partners_choice': 'Left'
+                }
+            else:
+                return {
+                    'choice': 'Right',
+                    'partners_choice': 'Right'
+                }
 
 
 class CumulativeResults(Page):
