@@ -1,0 +1,57 @@
+{{ block title }}Survey{{ endblock }}
+{{ block content }}
+    <p>
+        Answer the following to the best of your abilities.
+    </p>
+
+    {{ formfield 'major' }}
+
+    {{ formfield 'gender' }}
+
+    {{ formfield 'age' }}
+
+    <p>
+        How well do the following fit your own decision-making style
+    </p>
+
+    {{ formfield 'facts_and_logic' }}
+
+    {{ formfield 'feelings_and_intuition' }}
+
+    {{ formfield 'religious_and_spiritual' }}
+
+    <p>
+        How strongly do you agree or disagree with the following statements
+    </p>
+
+    {{ formfield 'spirits' }}
+
+    {{ formfield 'healing' }}
+
+    {{ formfield 'fortunetelling' }}
+
+    {{ formfield 'spiritual_person' }}
+
+    {{ formfield 'religious_person' }}
+
+    <p>
+        Religious Affiliation
+    </p>
+
+    {{ formfield 'religious_affiliation' }}
+
+    {{ formfield 'attend_services' }}
+
+    {{ formfield 'attend_services_young' }}
+
+    <p>
+        About the Experiment
+    </p>
+
+    {{ formfield 'clarity' }}
+
+    {{ formfield 'suggestions' }}
+
+    {{ next_button }}
+
+{{ endblock }}

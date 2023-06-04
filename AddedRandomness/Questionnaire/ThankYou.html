@@ -1,0 +1,23 @@
+{{ block title }}Thank You{{ endblock }}
+{{ block content }}
+
+<p>
+    Your total earnings from the experiment are {{ participant.payoff }}.
+    <br>
+    With the conversion from XX cents per point (1 dollar per XX points)
+    plus your $ 7.00 participation fee, your earnings totals:
+    <br>
+    {{ participant.payoff_plus_participation_fee() }}.
+</p>
+
+<p>
+    Thank you for your participation in the experiment. Before we adjourn, please write your name down on the
+    sticky-note at your desk, so we can ensure that you all get your correct payments. Then we ask you to
+    complete the following survey which is quite helpful for our research.
+</p>
+
+{{ formfields }}
+
+{{next_button}}
+
+{{ endblock }}
