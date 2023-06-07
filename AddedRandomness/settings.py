@@ -30,6 +30,18 @@ SESSION_CONFIGS = [
         display_name='Questionnaire',
         app_sequence=['Questionnaire'],
         num_demo_participants=1
+    ),
+    dict(
+        name='SHBase',
+        display_name='Stag Hunt Base',
+        app_sequence=['SHBase'],
+        num_demo_participants=2
+    ),
+    dict(
+        name='SHAdditive',
+        display_name='Stag Hunt Additive',
+        app_sequence=['SHAdditive'],
+        num_demo_participants=2
     )
 ]
 

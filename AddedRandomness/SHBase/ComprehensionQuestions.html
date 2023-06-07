@@ -1,0 +1,64 @@
+{{ block title }}Comprehension Questions{{ endblock }}
+{{ block content }}
+
+<p>
+	Below are a series of comprehension questions regarding the decisions you are about to undertake.
+</p>
+
+<p>
+  <strong>Question One</strong>
+  <br> You are matched with the <i>same</i> other player for all {{ C.NUM_ROUNDS }} periods.
+</p>
+
+{{ formfield 'comprehension_question_one' }}
+
+<p>
+  Below are a series of questions regarding your period earnings. They will help you gain an understanding
+  of the calculation of your earnings, which varies with your decision of <strong>Left</strong> and <strong>Right</strong>.
+  For the questions refer to the following table where the first number in each box refers to what you receive and the
+  second number is what the other player receives.
+  <br>
+  <img src="{% static 'SHBase/StagHuntBaseDecision.jpg' %}" alt="Image" height="400">
+</p>
+
+<p>
+  <strong>Question Two</strong>
+  <br>If you choose <strong>Left</strong> and the other player chooses <strong>Left</strong>,
+</p>
+
+<p>
+  <i>Part A</i>
+  <br>How many points do <u>you</u> receive?
+</p>
+
+{{ formfield 'comprehension_question_two_a' }}
+
+<p>
+  <i>Part B</i>
+  <br>How many points does the <u>other player</u> receive?
+</p>
+
+{{ formfield 'comprehension_question_two_b' }}
+
+<p>
+  <strong>Question Three</strong>
+  <br>If you choose <strong>Left</strong> and the other player chooses <strong>Right</strong>,
+</p>
+
+<p>
+  <i>Part A</i>
+  <br>How many points do <u>you</u> receive?
+</p>
+
+{{ formfield 'comprehension_question_three_a' }}
+
+<p>
+  <i>Part B</i>
+  <br>How many points does the <u>other player</u> receive?
+</p>
+
+{{ formfield 'comprehension_question_three_b' }}
+
+{{ next_button }}
+
+{{ endblock }}
