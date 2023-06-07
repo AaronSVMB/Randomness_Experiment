@@ -33,9 +33,8 @@ class Group(BaseGroup):
     pass
 
 
-
-
 class Player(BasePlayer):
+
     # Password to Start
     password = models.StringField()
 

@@ -45,6 +45,7 @@ class Player(BasePlayer):
     comprehension_question_three_a = models.IntegerField()
     comprehension_question_three_b = models.IntegerField()
 
+    # Decision
     cooperate = models.BooleanField(
         label="Please select your move: Left or Right",
         choices=[
