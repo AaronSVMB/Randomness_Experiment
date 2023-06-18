@@ -1,0 +1,118 @@
+{{ block title }}Instructions{{ endblock }}
+{{ block content }}
+
+    <p>
+        This experiment is a study of group and individual behavior. Everyone in this experiment is receiving the exact
+        same instructions. You will earn $7 simply for participating in this experiment for its full duration. But if
+        you follow the instructions and make careful decisions, you can earn a significant amount of additional money.
+        You will be paid at the end of the experiment via PayPal. The entire amount of money which you
+        earned with your decisions throughout this experiment will be added up and paid to you at the
+        end of the entire experiment.
+    </p>
+
+    <p>
+        During the experiment your earnings will be measured in points. Each point is worth X cents, so at the end of
+        the experiment your points will be converted to dollars at a rate of XX points per dollar.
+    </p>
+
+    <p>
+        It is important that you remain silent and not look at other people's work during the experiment. If you talk,
+        laugh, or exclaim out loud you will be asked to leave and will not be paid. If you have any questions or need
+        assistance, raise your hand the experimenter will come to you.
+    </p>
+
+    <h3>Your Group</h3>
+
+    <p>
+    Each participant will be <strong>randomly</strong> assigned an ID number and randomly assigned to a four-person
+    group. The group will remain the same throughout this portion of the experiment. There are 16 participants in today's
+    experiment, so there will be 4 groups in all with 4 members in each. Because you are known only by your random ID
+    number, there will be no way for anyone (including the experimenters) to know which group you are in or what
+    decisions you make.
+    </p>
+
+    <h3> Your Decisions</h3>
+
+    <p>
+        This experiment consists of {{ C.NUM_ROUNDS }} decision-making periods. At the start of each period you will receive
+        {{ C.ENDOWMENT }}. All other members of your group will also receive {{ C.ENDOWMENT}} each period.
+    </p>
+
+    <p>
+        In each period you will have to decide how to divide your points between <i>two accounts</i>.
+    </p>
+
+    <p>
+        <strong>Group's Joint Account</strong>: You are allowed to invest in your Group's Joint Account any whole
+        number X between 0 and {{ C.ENDOWMENT }} (inclusive).
+    </p>
+
+    <p>
+        The payoffs you receive from your Group's Joint Account depends not only on the amount you invest in your
+        Group's Joint Account, but also on the investment decisions of the other 3 members of your group.
+        You will find the payoff formula for the Group's Joint Account below.
+    </p>
+
+    <p>
+        <strong>Personal Account</strong>: After investing in the Group's Joint Account, the remaining amount of your
+        points will automatically be invested in your Personal Account.
+    </p>
+
+    <p>
+        For your Personal Account, the payoffs you receive depend only on your investment decision. Every point you invest
+        in your Personal Account gives you a payoff of 1 point. If you invest X points in your Group's Joint Account,
+        you will invest ( {{ C.ENDOWMENT}} - X) points in your Personal Account, and this will give you a payoff of
+        ( {{ C.ENDOWMENT }} - X) points from your Personal Account.
+    </p>
+
+    <p>
+        <strong>Total payoffs</strong>: Your total payoffs <i>per period</i> are the sum of your payoffs from your
+        Group's Joint Account and your Personal Account.
+    </p>
+
+    <p>
+        The following table describes your total payoffs (those of you interested in the payoff formula can find it below).
+        <br>
+        The second row in the table shows different investment levels in your Group's Joint Account that you can choose (X).
+        The second column shows different <strong>sum of the investment</strong> in the Group's Joint Account that the
+        other 3 members of your group may choose (Y). The remaining entries show the total payoffs you earn if you
+        choose the row level investment X (where X is the amount you invest in the Group's Joint Account) and the sum
+        of the investment of the others Y.
+        <br>
+        In other words, the entry corresponding to column Y and row X indicates your payoff in the case your investment
+        into the Group's Joint Account is X and the sum of the investment of the others is Y.
+    </p>
+
+    <p>
+        * Insert Table Here once parameters are selected *
+    </p>
+
+    <p>
+        Your Total Payoffs = Your Group's Joint Account Payoffs + Your Personal Account Payoffs
+        <br> = [ 6 - 0.0125*(Y+X)]*X + (100 - X)
+    </p>
+
+    <p>
+        Where X is your investment decision in the Group's Joint Account and Y is the sum of the investments of the others
+        in the Group's Joint Account.
+    </p>
+
+    <p>
+        <strong>Period by period information</strong>: You will not get information on the individual decisions of the
+        other members of your group. In each period, after all participants have made their decisions you will get information
+        on: (1) your own decision, (2) the sum of the decisions of others, (3) your payoffs in the Group's Joint Account,
+        (4), your payoffs from your Personal Account, and (5) the sum of the payoffs in both accounts.
+    </p>
+
+    <p>
+        <strong>Please raise your hand if you have any remaining questions.</strong>
+    </p>
+
+    <p>
+        <strong>Thank you very much for your participation!</strong>
+    </p>
+
+
+
+{{ next_button }}
+{{ endblock }}

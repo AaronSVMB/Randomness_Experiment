@@ -1,0 +1,46 @@
+{{ extends "global/Page.html" }}
+{{ block title }}Investment{{ endblock }}
+{{ block content }}
+
+    <p style="text-align:right;">
+        Period: {{ player.round_number }} / {{ C.NUM_ROUNDS }}
+    </p>
+
+    <p>
+        Reminder:
+        <br> Points: {{ C.ENDOWMENT }}
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+
+<div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Previous Periods' History</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Period</th>
+                        <th scope="col">Investment</th>
+                        <th scope="col">Personal Account</th>
+                        <th scope="col">Group's Joint Account</th>
+                        <th scope="col">Total Period Earnings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in history %}
+                        <tr>
+                            <td>{{ row.round_number }}</td>
+                            <td>{{ row.investment }}</td>
+                            <td>{{ row.personal_account }}</td>
+                            <td>{{ row.common_pool_earnings }}</td>
+                            <td>{{ row.payoff }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{{ endblock }}

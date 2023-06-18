@@ -42,6 +42,18 @@ SESSION_CONFIGS = [
         display_name='Stag Hunt Additive',
         app_sequence=['SHAdditive'],
         num_demo_participants=2
+    ),
+    dict(
+        name='CPRBase',
+        display_name='CPR Base Game',
+        app_sequence=['CPRBase'],
+        num_demo_participants=4
+    ),
+    dict(
+        name='CPRAdditive',
+        display_name='CPR Additive',
+        app_sequence=['CPRAdditive'],
+        num_demo_participants=4
     )
 ]
 
