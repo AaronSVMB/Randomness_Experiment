@@ -30,21 +30,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    # Password to Start
-    password = models.StringField()
-
-    # Comprehension Questions
-    comprehension_question_one = models.IntegerField(
-        choices=[
-            [1, 'True'],
-            [2, 'False'],
-        ], label="True or False"
-    )
-    comprehension_question_two_a = models.IntegerField()
-    comprehension_question_two_b = models.IntegerField()
-    comprehension_question_three_a = models.IntegerField()
-    comprehension_question_three_b = models.IntegerField()
-
     # Decision
     cooperate = models.BooleanField(
         label="Please select your move: Left or Right",
@@ -62,60 +47,6 @@ class Player(BasePlayer):
 
 
 # PAGES
-
-class Instructions(Page):
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-
-class ComprehensionQuestions(Page):
-    form_model = 'player'
-    form_fields = ['comprehension_question_one', 'comprehension_question_two_a',
-                   'comprehension_question_two_b', 'comprehension_question_three_a',
-                   'comprehension_question_three_b']
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-    @staticmethod
-    def error_message(player: Player, values):
-        if values['comprehension_question_one'] != 1:
-            return 'Reconsider your answer to question one'
-        if values['comprehension_question_two_a'] != 12:
-            return 'Reconsider your answer to question two b'
-        if values['comprehension_question_two_b'] != 12:
-            return 'Reconsider your answer to question two a'
-        if values['comprehension_question_three_a'] != 6:
-            return 'Reconsider your answer to question three a'
-        if values['comprehension_question_three_b'] != 16:
-            return 'Reconsider your answer to question three b'
-
-
-class InPersonPassword(Page):
-    form_model = 'player'
-    form_fields = ['password']
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-    @staticmethod
-    def error_message(player: Player, values):
-        if values['password'] != 'GoodLuck':
-            return 'Please check your spelling or ask the experimenter for assistance'
-
-
-class PasswordWaitPage(WaitPage):
-    wait_for_all_groups = True
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-
 class Decision(Page):
     form_model = 'player'
     form_fields = ['cooperate']
@@ -188,11 +119,7 @@ class CumulativeResults(Page):
         return {'cumulative_payoff': cumulative_payoff}
 
 
-page_sequence = [Instructions,
-                 ComprehensionQuestions,
-                 InPersonPassword,
-                 PasswordWaitPage,
-                 Decision,
+page_sequence = [Decision,
                  ResultsWaitPage,
                  Results,
                  CumulativeResults]

@@ -4,7 +4,7 @@
 
 {{ block content }}
 
-<h3>Welcome</h3>
+    <h3>Welcome</h3>
 
     <p>
         This experiment is a study of economic decision-making. Everyone in this experiment is receiving the exact
@@ -48,7 +48,7 @@
         {{ C.payoff_stag_hare_high }}. These payoffs are summarized in the table below. The first number in each
         box is the payment received by you, the second number is the payment received by the other player:
         <br>
-        <img src="{% static 'SHAdditive/SHAdditiveDecision.jpg' %}" alt="Image" height="400">
+        <img src="{% static 'SHBase/StagHuntBaseDecision.jpg' %}" alt="Image" height="400">
     </p>
 
     <p>
@@ -58,26 +58,8 @@
     </p>
 
     <p>
-        You will play the one-period game just described to you for {{ C.NUM_ROUNDS }} periods with the <strong>same</strong> other
+        You will play the one-period game just described to you for {{ C.NUM_PERIODS_IN_APP }} periods with the <strong>same</strong> other
         player.
-    </p>
-
-    <h3>Adjustment</h3>
-
-    <p>
-        After you and the other player's decisions are made, the computer will make adjustments to the earnings of all the participants
-        in the experiment. The adjustments will be either +5 or -5 points. The same adjustment will be made to the
-        earnings of the other member you are matched with, but the other matched individuals in this session
-        may receive different adjustments. The computer will choose the adjustment for your group based on a random
-        number calculation, so that there will be a 50% chance that {{ C.additive_shock_value }} are added to the
-        earnings of you and the other player you are paired with and a 50% chance that {{ C.additive_shock_value }} are
-        subtracted the earnings of you and the other player you are matched with. The computer will calculate a different
-        random number for all matched pairings in this experiment.
-    </p>
-
-    <p><strong><i>Example</i></strong>: If you both choose <strong>Left</strong> and the computer randomly picks to add
-        {{ C.additive_shock_value }} your period payoff will be {{ C.payoff_both_stag }} +
-        {{ C.additive_shock_value }} = 17.
     </p>
 
     <h3>Confidentiality</h3>
@@ -94,6 +76,8 @@
     <p>
         <strong>Thank you and Good Luck!</strong>
     </p>
+
+
 
     {{ next_button }}
 {{ endblock }}

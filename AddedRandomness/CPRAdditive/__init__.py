@@ -2,7 +2,7 @@ from otree.api import *
 import random
 
 doc = """
-Your app description
+Code for the Common-Pool Resources Games 
 """
 
 
@@ -31,20 +31,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    # Comprehension Questions
-    comprehension_question_one = models.IntegerField(label="If you invest X points into your Group's Joint Account, how"
-                                                           " many points do you automatically invest in your "
-                                                           "Personal Account?")
-    comprehension_question_two = models.IntegerField(label="If you invest Y into your Group's Joint Account, what is "
-                                                           "your profit from your Personal Account?")
-    comprehension_question_three = models.IntegerField(label="If you invest Z into your Group's Joint account, and the "
-                                                             "other three participants invest a total of W points into "
-                                                             "the Group's Joint Account and the adjustment produces a"
-                                                             " value of +5, what is your TOTAL profit?")
-
-    # In-person Passcode
-    password_to_start = models.StringField()
-
     # Decision Variables
     investment = models.CurrencyField(
         min=0, max=C.ENDOWMENT, label="How much will you invest to Your Group's Joint Account?"
@@ -76,50 +62,6 @@ def set_payoffs(group: Group):
 
 
 # PAGES
-
-class Instructions(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-
-class ComprehensionQuestions(Page):
-    form_model = 'player'
-    form_fields = ['comprehension_question_one', 'comprehension_question_two', 'comprehension_question_three']
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-    @staticmethod
-    def error_message(player: Player, values):
-        if values['comprehension_question_one'] != 2:
-            return 'Reconsider your answer to question one'
-        if values['comprehension_question_two'] != 2:
-            return 'Reconsider your answer to question two'
-        if values['comprehension_question_three'] != 2:
-            return 'Reconsider your answer to question three'
-
-
-class InPersonPassword(Page):
-    form_model = 'player'
-    form_fields = ['password_to_start']
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
-    def error_message(player: Player, values):
-        if values['password_to_start'] != 'experiment':
-            return 'Check your spelling or ask the experimenter for assistance'
-
-
-class PasswordWaitPage(WaitPage):
-    wait_for_all_groups = True
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
 
 
 class Invest(Page):
@@ -167,11 +109,7 @@ class CumulativeResults(Page):
         return {'cumulative_payoff': cumulative_payoff}
 
 
-page_sequence = [Instructions,
-                 ComprehensionQuestions,
-                 InPersonPassword,
-                 PasswordWaitPage,
-                 Invest,
+page_sequence = [Invest,
                  ResultsWaitPage,
                  Results,
                  CumulativeResults]

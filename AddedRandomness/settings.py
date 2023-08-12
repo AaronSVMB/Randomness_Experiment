@@ -9,13 +9,13 @@ SESSION_CONFIGS = [
     dict(
         name='PDBase',
         display_name='PD',
-        app_sequence=['PDBase'],
+        app_sequence=['PDBaseInstrucs', 'PDBase'],
         num_demo_participants=2
     ),
     dict(
         name='PDAdditive',
         display_name='PDAdditive',
-        app_sequence=['PDAdditive'],
+        app_sequence=['PDAdditiveInstrucs','PDAdditive'],
         num_demo_participants=2
     ),
     dict(
@@ -34,25 +34,25 @@ SESSION_CONFIGS = [
     dict(
         name='SHBase',
         display_name='Stag Hunt Base',
-        app_sequence=['SHBase'],
+        app_sequence=['SHBaseInstrucs','SHBase'],
         num_demo_participants=2
     ),
     dict(
         name='SHAdditive',
         display_name='Stag Hunt Additive',
-        app_sequence=['SHAdditive'],
+        app_sequence=['SHAdditiveInstrucs','SHAdditive'],
         num_demo_participants=2
     ),
     dict(
         name='CPRBase',
         display_name='CPR Base Game',
-        app_sequence=['CPRBase'],
+        app_sequence=['CPRBaseInstrucs', 'CPRBase'],
         num_demo_participants=4
     ),
     dict(
         name='CPRAdditive',
         display_name='CPR Additive',
-        app_sequence=['CPRAdditive'],
+        app_sequence=['CPRAdditiveInstrucs','CPRAdditive'],
         num_demo_participants=4
     )
 ]
